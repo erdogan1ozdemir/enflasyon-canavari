@@ -1,0 +1,17 @@
+{
+  "name": "enflasyon-canavari",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": ["data", "web"],
+  "scripts": {
+    "test": "vitest run",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "dev": "npm run dev -w web"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0",
+    "tsx": "^4.19.0",
+    "zod": "^3.23.0"
+  }
+}
