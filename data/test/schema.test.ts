@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { ItemSchema, PricePointSchema } from "../src/schema";
+import { ItemSchema, PricePointSchema, SourceSchema } from "../src/schema";
 
 describe("ItemSchema", () => {
   it("geçerli bir kalemi kabul eder", () => {
@@ -66,6 +66,28 @@ describe("PricePointSchema", () => {
       kaynakAdi: "TÜİK",
       kaynakURL: "https://www.tuik.gov.tr",
       dogrulama: "dogrulanmis",
+    });
+    expect(bad.success).toBe(false);
+  });
+});
+
+describe("SourceSchema", () => {
+  it("geçerli bir kaynağı kabul eder", () => {
+    const ok = SourceSchema.safeParse({
+      ad: "TÜİK",
+      tip: "elle",
+      url: "https://www.tuik.gov.tr",
+      metodoloji: "Tüketici fiyatları ortalama değerleri",
+    });
+    expect(ok.success).toBe(true);
+  });
+
+  it("geçersiz URL'i reddeder", () => {
+    const bad = SourceSchema.safeParse({
+      ad: "TÜİK",
+      tip: "elle",
+      url: "tuik",
+      metodoloji: "x",
     });
     expect(bad.success).toBe(false);
   });

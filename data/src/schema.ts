@@ -25,6 +25,8 @@ export const BIRIMLER = [
   "m3",
 ] as const;
 
+export const KAYNAK_TIPLERI = ["resmi-api", "elle", "epdk", "crowdsource"] as const;
+
 export const ItemSchema = z.object({
   id: z.string().min(1),
   isim: z.string().min(1),
@@ -39,7 +41,7 @@ export const PricePointSchema = z.object({
   yil: z.number().int().min(2005).max(2100),
   deger: z.number().positive(),
   tip: z.enum(["net", "ortalama"]),
-  kaynakTipi: z.enum(["resmi-api", "elle", "epdk", "crowdsource"]),
+  kaynakTipi: z.enum(KAYNAK_TIPLERI),
   kaynakAdi: z.string().min(1),
   kaynakURL: z.string().url(),
   dogrulama: z.enum(["dogrulanmis", "beklemede"]),
@@ -48,7 +50,7 @@ export const PricePointSchema = z.object({
 
 export const SourceSchema = z.object({
   ad: z.string().min(1),
-  tip: z.enum(["resmi-api", "elle", "epdk", "crowdsource"]),
+  tip: z.enum(KAYNAK_TIPLERI),
   url: z.string().url(),
   metodoloji: z.string().min(1),
 });
