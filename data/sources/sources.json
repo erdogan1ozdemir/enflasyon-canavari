@@ -1,0 +1,5 @@
+[
+  { "ad": "TÜİK", "tip": "elle", "url": "https://www.tuik.gov.tr", "metodoloji": "Tüketici fiyatları ortalama değerleri" },
+  { "ad": "TCMB EVDS", "tip": "resmi-api", "url": "https://evds2.tcmb.gov.tr", "metodoloji": "Günlük döviz ve altın kurları, yıllık ortalama" },
+  { "ad": "Resmi Gazete", "tip": "elle", "url": "https://www.resmigazete.gov.tr", "metodoloji": "Asgari ücret tespit komisyonu kararları, net tutar" }
+]
