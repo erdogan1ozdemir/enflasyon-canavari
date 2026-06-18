@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -102,7 +101,8 @@ function LinkCard({ eyebrow, soru, aDeger, bDeger, aEtiket = "2005", bEtiket = "
     >
       {/* Top bar */}
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        <Image src="/monster-mark.svg" alt="Enflasyon Canavarı" width={40} height={40} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/monster-mark.svg" alt="Enflasyon Canavarı" width={40} height={40} style={{ width: 40, height: 40 }} />
         <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: "-0.02em" }}>
           Enflasyon Canavarı
         </span>
@@ -201,7 +201,8 @@ function LinkCard({ eyebrow, soru, aDeger, bDeger, aEtiket = "2005", bEtiket = "
       </div>
 
       {/* Mascot peeking from bottom-right */}
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/monster-mark.svg"
         alt=""
         width={360}
@@ -213,6 +214,8 @@ function LinkCard({ eyebrow, soru, aDeger, bDeger, aEtiket = "2005", bEtiket = "
           bottom: -56,
           opacity: 0.96,
           pointerEvents: "none",
+          width: 360,
+          height: 360,
         }}
       />
     </div>
@@ -243,14 +246,16 @@ function StoryCard({ eyebrow, soru, aDeger, bDeger, aEtiket = "2005", bEtiket = 
     >
       {/* Top bar */}
       <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-        <Image src="/monster-mark.svg" alt="Enflasyon Canavarı" width={76} height={76} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/monster-mark.svg" alt="Enflasyon Canavarı" width={76} height={76} style={{ width: 76, height: 76 }} />
         <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-0.02em" }}>
           Enflasyon Canavarı
         </span>
       </div>
 
       {/* Hero mascot */}
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/monster-mark.svg"
         alt=""
         width={300}
