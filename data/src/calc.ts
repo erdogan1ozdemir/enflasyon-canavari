@@ -77,6 +77,7 @@ export function kacXEder(
   yil: number,
   opts?: FiyatOpts,
 ): number | null {
+  if (tutarTL < 0) return null;
   const f = fiyatBul(prices, itemId, yil, opts);
   if (f === null || f === 0) return null;
   return tutarTL / f;
@@ -90,6 +91,7 @@ export function enflasyonaGore(
   yilB: number,
   opts?: FiyatOpts,
 ): number | null {
+  if (tutar < 0) return null;
   const ia = fiyatBul(prices, endeksItemId, yilA, opts);
   const ib = fiyatBul(prices, endeksItemId, yilB, opts);
   if (ia === null || ib === null || ia === 0) return null;
@@ -100,6 +102,7 @@ export function formatTL(n: number): string {
   return new Intl.NumberFormat("tr-TR", {
     style: "currency",
     currency: "TRY",
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(n);
 }

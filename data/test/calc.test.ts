@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { PricePointSchema } from "../src/schema";
+import type { PricePoint } from "../src/types";
 import {
   fiyatBul,
   degisim,
@@ -107,5 +108,30 @@ describe("format", () => {
   });
   it("formatTL ₺ içerir", () => {
     expect(formatTL(25)).toContain("₺");
+  });
+});
+
+describe("kenar durumlar (review fixleri)", () => {
+  it("formatTL iki ondalık gösterir", () => {
+    expect(formatTL(25)).toBe(formatTL(25)); // sanity
+    expect(formatTL(25)).toContain(",00");
+    expect(formatTL(25.1)).toContain(",10");
+  });
+
+  it("kacXEder negatif tutarda null, sıfırda 0 döner", () => {
+    expect(kacXEder(prices, -100, "ekmek", 2026)).toBeNull();
+    expect(kacXEder(prices, 0, "ekmek", 2026)).toBe(0);
+  });
+
+  it("enflasyonaGore negatif tutarda null", () => {
+    expect(enflasyonaGore(prices, "tufe", -350, 2005, 2026)).toBeNull();
+  });
+
+  it("degisim sıfır baz değerinde null (savunma)", () => {
+    const sifirPrices = [
+      { itemId: "x", yil: 2005, deger: 0, tip: "ortalama", kaynakTipi: "elle", kaynakAdi: "T", kaynakURL: "https://t.co", dogrulama: "dogrulanmis" },
+      { itemId: "x", yil: 2026, deger: 10, tip: "ortalama", kaynakTipi: "elle", kaynakAdi: "T", kaynakURL: "https://t.co", dogrulama: "dogrulanmis" },
+    ] as unknown as PricePoint[];
+    expect(degisim(sifirPrices, "x", 2005, 2026)).toBeNull();
   });
 });
