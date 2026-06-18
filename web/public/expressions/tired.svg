@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Enflasyon Canavarı amblemi">
+  <circle cx="64" cy="64" r="60" fill="#D85A30"></circle>
+  <path d="M49 97 Q64 91 79 97" fill="none" stroke="#3A1208" stroke-width="6" stroke-linecap="round"></path>
+  <path d="M32 47 A14 12 0 0 0 60 47 Z" fill="#FBF3EC"></path>
+  <path d="M67 45 A15 13 0 0 0 97 45 Z" fill="#FBF3EC"></path>
+  <circle cx="46" cy="50" r="5.5" fill="#1A1410"></circle>
+  <circle cx="82" cy="48" r="6" fill="#1A1410"></circle>
+  <path d="M35 58 Q46 63 57 58" fill="none" stroke="#9C3A1C" stroke-width="2.4" stroke-linecap="round" opacity="0.65"></path>
+  <path d="M69 56 Q82 61 95 56" fill="none" stroke="#9C3A1C" stroke-width="2.4" stroke-linecap="round" opacity="0.65"></path>
+  <path d="M31 44 L58 38" stroke="#9C3A1C" stroke-width="6" stroke-linecap="round"></path>
+  <path d="M97 42 L70 36" stroke="#9C3A1C" stroke-width="6" stroke-linecap="round"></path>
+</svg>

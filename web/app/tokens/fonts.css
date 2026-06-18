@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Enflasyon Canavarı — Fonts
+   UI/body: Geist · Data/numbers: Geist Mono (both used in the product codebase)
+   Loaded via next/font (not Google Fonts CDN) — see web/app/layout.tsx.
+   ========================================================================== */
+
+/* NOTE: The Google Fonts @import has been intentionally omitted here.
+   next/font/google already loads Geist and Geist_Mono and exposes them as
+   CSS variables --font-geist-sans and --font-geist-mono on <html>.
+   We chain those variables here so all downstream tokens (--font-sans,
+   --font-data) resolve correctly without a second font download. */
+:root {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}

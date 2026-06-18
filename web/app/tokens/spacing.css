@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Enflasyon Canavarı — Spacing, radius, border, shadow, motion
+   Soft corners, hairline borders, airy whitespace. Flat — shadows are faint.
+   ========================================================================== */
+:root {
+  /* spacing scale (4px base) */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* radii — soft, generous */
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --radius-pill: 999px;
+
+  /* borders — hairline */
+  --border-width: 1px; /* @kind other */
+  --border-width-strong: 1.5px; /* @kind other */
+
+  /* shadows — subtle, warm-tinted; flat aesthetic */
+  --shadow-xs: 0 1px 2px rgba(28, 20, 14, 0.05);
+  --shadow-sm: 0 1px 3px rgba(28, 20, 14, 0.06), 0 1px 2px rgba(28, 20, 14, 0.04);
+  --shadow-md: 0 4px 12px rgba(28, 20, 14, 0.07), 0 2px 4px rgba(28, 20, 14, 0.04);
+  --shadow-lg: 0 12px 32px rgba(28, 20, 14, 0.10), 0 4px 8px rgba(28, 20, 14, 0.05);
+  --shadow-focus: 0 0 0 3px var(--focus-ring);
+
+  /* containers */
+  --container-sm: 480px; /* @kind spacing */
+  --container-md: 720px; /* @kind spacing */
+  --container-lg: 960px; /* @kind spacing */
+
+  /* hit target (accessibility) */
+  --tap-min: 44px; /* @kind spacing */
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 360ms; /* @kind other */
+}

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Enflasyon Canavarı — Typography tokens
+   UI/body: Geist. Data (prices, %, ×62): Geist Mono with tabular figures.
+   Numbers are a first-class citizen — give them --font-data + --num-* sizes.
+   ========================================================================== */
+:root {
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* weights */
+  --fw-light: 300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-black: 800; /* @kind font */
+
+  /* UI / prose type scale (1.250 major-third-ish, tuned) */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  30px;
+  --text-3xl:  38px;
+  --text-4xl:  48px;
+  --text-5xl:  60px;
+
+  /* DATA scale — the punchy numbers (hero "×62", big prices) */
+  --num-sm:   18px;
+  --num-md:   24px;
+  --num-lg:   34px;
+  --num-xl:   52px;
+  --num-2xl:  76px;
+  --num-3xl: 104px;
+
+  /* line heights */
+  --lh-tight: 1.05; /* @kind font */
+  --lh-snug:  1.2; /* @kind font */
+  --lh-normal:1.5; /* @kind font */
+  --lh-relaxed:1.65; /* @kind font */
+
+  /* letter spacing */
+  --ls-tight: -0.02em; /* @kind font */
+  --ls-snug:  -0.01em; /* @kind font */
+  --ls-normal: 0; /* @kind font */
+  --ls-wide:  0.04em; /* @kind font */
+  --ls-caps:  0.06em; /* @kind font */
+}
+
+/* Helper classes consumers/cards can use directly */
+.ec-display { font-family: var(--font-sans); font-weight: var(--fw-bold); letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }
+.ec-title   { font-family: var(--font-sans); font-weight: var(--fw-semibold); letter-spacing: var(--ls-snug); line-height: var(--lh-snug); }
+.ec-body    { font-family: var(--font-sans); font-weight: var(--fw-regular); line-height: var(--lh-normal); }
+.ec-eyebrow { font-family: var(--font-sans); font-weight: var(--fw-semibold); letter-spacing: var(--ls-caps); text-transform: uppercase; font-size: var(--text-xs); }
+.ec-data    { font-family: var(--font-data); font-weight: var(--fw-semibold); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }

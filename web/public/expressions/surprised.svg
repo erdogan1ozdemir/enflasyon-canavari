@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Enflasyon Canavarı amblemi">
+  <circle cx="64" cy="64" r="60" fill="#D85A30"></circle>
+  <ellipse cx="64" cy="95" rx="11" ry="13" fill="#3A1208"></ellipse>
+  <path d="M57 83 l5 0 -2.5 6 z" fill="#FBF3EC"></path>
+  <path d="M64 83 l5 0 -2.5 6 z" fill="#FBF3EC"></path>
+  <text x="58" y="101" font-family="Geist, sans-serif" font-size="11" font-weight="700" fill="#E9C8A2">₺</text>
+  <ellipse cx="44" cy="48" rx="15" ry="16" fill="#FBF3EC"></ellipse>
+  <ellipse cx="82" cy="45" rx="17" ry="18" fill="#FBF3EC"></ellipse>
+  <circle cx="44" cy="49" r="6" fill="#1A1410"></circle>
+  <circle cx="82" cy="46" r="6.5" fill="#1A1410"></circle>
+  <path d="M29 30 Q44 17 60 28" fill="none" stroke="#9C3A1C" stroke-width="6.5" stroke-linecap="round"></path>
+  <path d="M68 25 Q83 12 99 24" fill="none" stroke="#9C3A1C" stroke-width="6.5" stroke-linecap="round"></path>
+</svg>

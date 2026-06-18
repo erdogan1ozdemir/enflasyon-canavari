@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Enflasyon Canavarı amblemi">
+  <circle cx="64" cy="64" r="60" fill="#D85A30"></circle>
+  <ellipse cx="64" cy="94" rx="10" ry="14" fill="#3A1208"></ellipse>
+  <ellipse cx="64" cy="101" rx="6" ry="5" fill="#9C3A1C"></ellipse>
+  <path d="M58 83 l5 0 -2.5 6 z" fill="#FBF3EC"></path>
+  <path d="M64 83 l5 0 -2.5 6 z" fill="#FBF3EC"></path>
+  <ellipse cx="45" cy="47" rx="13" ry="12" fill="#FBF3EC"></ellipse>
+  <ellipse cx="81" cy="45" rx="15" ry="14" fill="#FBF3EC"></ellipse>
+  <circle cx="46" cy="50" r="5.5" fill="#1A1410"></circle>
+  <circle cx="82" cy="48" r="6.5" fill="#1A1410"></circle>
+  <path d="M31 47 A14 13 0 0 1 59 47 Z" fill="#D85A30"></path>
+  <path d="M66 45 A15 14 0 0 1 96 45 Z" fill="#D85A30"></path>
+  <path d="M32 47 A14 13 0 0 1 58 47" fill="none" stroke="#9C3A1C" stroke-width="2.6" stroke-linecap="round"></path>
+  <path d="M67 45 A15 14 0 0 1 95 45" fill="none" stroke="#9C3A1C" stroke-width="2.6" stroke-linecap="round"></path>
+  <path d="M31 38 Q45 34 58 39" fill="none" stroke="#9C3A1C" stroke-width="6" stroke-linecap="round"></path>
+  <path d="M97 36 Q83 32 70 37" fill="none" stroke="#9C3A1C" stroke-width="6" stroke-linecap="round"></path>
+</svg>

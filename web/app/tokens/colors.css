@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Enflasyon Canavarı — Color tokens
+   Light is default; dark mode via [data-theme="dark"] OR prefers-color-scheme.
+   Primary = coral (the monster). Trust = calm teal. Increases read as coral/red.
+   ========================================================================== */
+:root {
+  /* --- Brand: Coral ("canavar") --- */
+  --coral-50:  #FDF1EC;
+  --coral-100: #FADFD3;
+  --coral-200: #F4BBA3;
+  --coral-300: #EC9270;
+  --coral-400: #E27148;
+  --coral-500: #D85A30; /* primary brand */
+  --coral-600: #BF4A24;
+  --coral-700: #9C3A1C;
+  --coral-800: #722A15;
+  --coral-900: #4F1E10;
+
+  /* --- Trust: Teal (calm, credible — sources, verified) --- */
+  --teal-50:  #E8F4F2;
+  --teal-100: #C7E6E1;
+  --teal-200: #8FCDC4;
+  --teal-300: #54AFA3;
+  --teal-400: #258F82;
+  --teal-500: #0E776C; /* secondary */
+  --teal-600: #0B5F56;
+  --teal-700: #094A43;
+  --teal-800: #073631;
+  --teal-900: #052420;
+
+  /* --- Logo / data blue (the rising graph line; secondary buttons, charts) --- */
+  --blue-50:  #EDF2F7;
+  --blue-100: #D5E0EB;
+  --blue-200: #ABC1D7;
+  --blue-300: #7E9DBE;
+  --blue-400: #5A7CA0;
+  --blue-500: #4F7196; /* the emblem's graph line */
+  --blue-600: #3F5B79;
+  --blue-700: #324860;
+  --blue-800: #26374A;
+  --blue-900: #1A2531;
+
+  /* --- Neutrals (very slightly warm) --- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #FBFAF9;
+  --neutral-100: #F4F2F0;
+  --neutral-200: #E7E3DF;
+  --neutral-300: #D6D0CA;
+  --neutral-400: #ABA39B;
+  --neutral-500: #837A71;
+  --neutral-600: #5F574F;
+  --neutral-700: #423C36;
+  --neutral-800: #272320;
+  --neutral-900: #16130F;
+  --neutral-950: #0C0A08;
+
+  /* --- Semantic: status --- */
+  --green-500: #2E9E5B;
+  --green-50:  #E7F5EC;
+  --amber-500: #E0992A;
+  --amber-50:  #FBF1DD;
+  --red-500:   #D8443A;
+  --red-50:    #FBEAE8;
+
+  /* ====== Semantic aliases — LIGHT ====== */
+  --bg-app:        var(--neutral-50);
+  --bg-subtle:     var(--neutral-100);
+  --surface-card:  var(--neutral-0);
+  --surface-raised:var(--neutral-0);
+  --surface-inset: var(--neutral-50);
+
+  --text-strong:   var(--neutral-900);
+  --text-body:     var(--neutral-700);
+  --text-muted:    var(--neutral-500);
+  --text-faint:    var(--neutral-400);
+  --text-on-accent:#FFFFFF;
+
+  --border-subtle: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-focus:  var(--coral-500);
+
+  --accent:        var(--coral-500);
+  --accent-hover:  var(--coral-600);
+  --accent-press:  var(--coral-700);
+  --accent-tint:   var(--coral-50);
+  --accent-text:   var(--coral-700);
+
+  --trust:         var(--teal-500);
+  --trust-tint:    var(--teal-50);
+  --trust-text:    var(--teal-600);
+
+  --data-blue:     var(--blue-500);
+  --data-blue-tint:var(--blue-50);
+  --data-blue-text:var(--blue-600);
+
+  /* data direction: prices going UP (the monster eating) */
+  --rise:          var(--coral-600);
+  --rise-tint:     var(--coral-50);
+  --fall:          var(--teal-600);
+  --fall-tint:     var(--teal-50);
+
+  --focus-ring:    color-mix(in oklch, var(--coral-500) 38%, transparent);
+}
+
+/* ====== Semantic aliases — DARK ======
+   Warm charcoal, not pure black — lifted for comfortable reading. */
+[data-theme="dark"] {
+  --bg-app:        #1C1916;
+  --bg-subtle:     #232019;
+  --surface-card:  #2A2521;
+  --surface-raised:#332D28;
+  --surface-inset: #211D1A;
+
+  --text-strong:   #F7F4F1;
+  --text-body:     #D9D2CB;
+  --text-muted:    #A39A92;
+  --text-faint:    #786F67;
+  --text-on-accent:#FFFFFF;
+
+  --border-subtle: #3B342E;
+  --border-strong: #504840;
+  --border-focus:  var(--coral-400);
+
+  --accent:        var(--coral-500);
+  --accent-hover:  var(--coral-400);
+  --accent-press:  var(--coral-300);
+  --accent-tint:   color-mix(in oklch, var(--coral-500) 18%, #2A2521);
+  --accent-text:   var(--coral-300);
+
+  --trust:         var(--teal-300);
+  --trust-tint:    color-mix(in oklch, var(--teal-500) 20%, #2A2521);
+  --trust-text:    var(--teal-200);
+
+  --data-blue:     var(--blue-300);
+  --data-blue-tint:color-mix(in oklch, var(--blue-500) 22%, #2A2521);
+  --data-blue-text:var(--blue-200);
+
+  --rise:          var(--coral-400);
+  --rise-tint:     color-mix(in oklch, var(--coral-500) 18%, #2A2521);
+  --fall:          var(--teal-300);
+  --fall-tint:     color-mix(in oklch, var(--teal-500) 18%, #2A2521);
+
+  --green-50: color-mix(in oklch, var(--green-500) 20%, #2A2521);
+  --amber-50: color-mix(in oklch, var(--amber-500) 20%, #2A2521);
+  --red-50:   color-mix(in oklch, var(--red-500) 20%, #2A2521);
+
+  --focus-ring:    color-mix(in oklch, var(--coral-400) 45%, transparent);
+}
+
+/* Auto dark when the consumer hasn't pinned a theme.
+   :root gets the dark values under the media query; an explicit
+   [data-theme="light"] restores the light set so it still wins on a dark OS. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app:        #1C1916;
+    --bg-subtle:     #232019;
+    --surface-card:  #2A2521;
+    --surface-raised:#332D28;
+    --surface-inset: #211D1A;
+    --text-strong:   #F7F4F1;
+    --text-body:     #D9D2CB;
+    --text-muted:    #A39A92;
+    --text-faint:    #786F67;
+    --border-subtle: #3B342E;
+    --border-strong: #504840;
+    --border-focus:  var(--coral-400);
+    --accent-tint:   color-mix(in oklch, var(--coral-500) 18%, #2A2521);
+    --accent-text:   var(--coral-300);
+    --trust:         var(--teal-300);
+    --trust-tint:    color-mix(in oklch, var(--teal-500) 20%, #2A2521);
+    --trust-text:    var(--teal-200);
+    --data-blue:     var(--blue-300);
+    --data-blue-tint:color-mix(in oklch, var(--blue-500) 22%, #2A2521);
+    --data-blue-text:var(--blue-200);
+    --rise:          var(--coral-400);
+    --rise-tint:     color-mix(in oklch, var(--coral-500) 18%, #2A2521);
+    --fall:          var(--teal-300);
+    --fall-tint:     color-mix(in oklch, var(--teal-500) 18%, #2A2521);
+    --focus-ring:    color-mix(in oklch, var(--coral-400) 45%, transparent);
+  }
+  [data-theme="light"] {
+    --bg-app:        var(--neutral-50);
+    --bg-subtle:     var(--neutral-100);
+    --surface-card:  var(--neutral-0);
+    --surface-raised:var(--neutral-0);
+    --surface-inset: var(--neutral-50);
+    --text-strong:   var(--neutral-900);
+    --text-body:     var(--neutral-700);
+    --text-muted:    var(--neutral-500);
+    --text-faint:    var(--neutral-400);
+    --border-subtle: var(--neutral-200);
+    --border-strong: var(--neutral-300);
+    --border-focus:  var(--coral-500);
+    --accent-tint:   var(--coral-50);
+    --accent-text:   var(--coral-700);
+    --trust:         var(--teal-500);
+    --trust-tint:    var(--teal-50);
+    --trust-text:    var(--teal-600);
+    --data-blue:     var(--blue-500);
+    --data-blue-tint:var(--blue-50);
+    --data-blue-text:var(--blue-600);
+    --rise:          var(--coral-600);
+    --rise-tint:     var(--coral-50);
+    --fall:          var(--teal-600);
+    --fall-tint:     var(--teal-50);
+    --focus-ring:    color-mix(in oklch, var(--coral-500) 38%, transparent);
+  }
+}
