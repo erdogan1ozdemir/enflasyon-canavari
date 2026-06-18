@@ -1,6 +1,1 @@
-[
-  { "itemId": "ekmek", "yil": 2005, "deger": 0.4, "tip": "ortalama", "kaynakTipi": "elle", "kaynakAdi": "TÜİK", "kaynakURL": "https://www.tuik.gov.tr", "dogrulama": "beklemede", "not": "Örnek veri — doğrulanacak" },
-  { "itemId": "ekmek", "yil": 2026, "deger": 25.0, "tip": "ortalama", "kaynakTipi": "elle", "kaynakAdi": "TÜİK", "kaynakURL": "https://www.tuik.gov.tr", "dogrulama": "beklemede", "not": "Örnek veri — doğrulanacak" },
-  { "itemId": "asgari-ucret", "yil": 2005, "deger": 350.15, "tip": "net", "kaynakTipi": "elle", "kaynakAdi": "Resmi Gazete", "kaynakURL": "https://www.resmigazete.gov.tr", "dogrulama": "beklemede", "not": "Örnek veri — doğrulanacak" },
-  { "itemId": "asgari-ucret", "yil": 2026, "deger": 22104.0, "tip": "net", "kaynakTipi": "elle", "kaynakAdi": "Resmi Gazete", "kaynakURL": "https://www.resmigazete.gov.tr", "dogrulama": "beklemede", "not": "Örnek veri — doğrulanacak" }
-]
+[]
