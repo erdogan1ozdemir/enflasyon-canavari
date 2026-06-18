@@ -282,17 +282,12 @@ export default function CompareScreen({
             padding: "32px 20px",
           }}
         >
-          <span
-            style={{
-              fontSize: 32,
-              lineHeight: 1,
-              opacity: 0.25,
-              userSelect: "none",
-            }}
+          <Icon
+            name="scale"
+            size={32}
+            style={{ opacity: 0.25 }}
             aria-hidden
-          >
-            📊
-          </span>
+          />
           <p
             style={{
               margin: 0,
