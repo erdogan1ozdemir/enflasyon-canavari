@@ -84,7 +84,7 @@ export default function CalcScreen({
             color: "var(--accent-text)",
           }}
         >
-          Kisisel hesap
+          Kişisel hesap
         </span>
         <h1
           style={{
@@ -115,7 +115,7 @@ export default function CalcScreen({
               marginBottom: 8,
             }}
           >
-            O gunku tutar (TL)
+            O günkü tutar (TL)
           </div>
           <Input
             type="number"
@@ -143,7 +143,7 @@ export default function CalcScreen({
               marginBottom: 8,
             }}
           >
-            Hangi yil
+            Hangi yıl
           </div>
           {yearOptions.length > 0 ? (
             <div
@@ -195,7 +195,7 @@ export default function CalcScreen({
             lineHeight: 1.5,
           }}
         >
-          Girdigin tutar yalnizca tarayicinda kalir; hesap gerektirmez.
+          Girdiğin tutar yalnızca tarayıcında kalır; hesap gerektirmez.
         </p>
       </Card>
 
@@ -212,14 +212,14 @@ export default function CalcScreen({
           }}
         >
           <BigStat
-            eyebrow="BUGUNKU KARSILIGI"
+            eyebrow="BUGÜNKÜ KARŞILIĞI"
             value={formatTL(bugunkuKarsilik)}
             size="lg"
             tone="accent"
-            caption={`${yil} yilindaki ${formatTL(tutar)} bugune gore`}
+            caption={`${yil} yılındaki ${formatTL(tutar)} bugüne göre`}
           />
           <div style={{ marginTop: 12 }}>
-            <SourceBadge source="TUIK" label="TUFE" status="verified" size="sm" />
+            <SourceBadge source="TÜİK" label="TÜFE" status="verified" size="sm" />
           </div>
         </div>
       ) : (
@@ -249,7 +249,7 @@ export default function CalcScreen({
               color: "var(--text-strong)",
             }}
           >
-            Sonuc hesaplanacak
+            Sonuç hesaplanacak
           </p>
           <p
             style={{
@@ -260,7 +260,7 @@ export default function CalcScreen({
               lineHeight: 1.5,
             }}
           >
-            Bu hesap icin gerekli veri (TUFE endeksi) yakinda eklenecek.
+            Bu hesap için gerekli veri (TÜFE endeksi) yakında eklenecek.
           </p>
         </Card>
       )}
