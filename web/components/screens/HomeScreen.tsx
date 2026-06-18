@@ -12,6 +12,7 @@ import SourceBadge from "@/components/data/SourceBadge";
 import TrendPill from "@/components/data/TrendPill";
 import ItemRow from "@/components/data/ItemRow";
 import type { ItemViewModel, ListRowViewModel } from "@/lib/viewmodel";
+import { kategoriLabel } from "@/lib/labels";
 
 // ─── Props ──────────────────────────────────────────────────────────────────
 
@@ -194,18 +195,7 @@ export default function HomeScreen({ rows, featured }: HomeScreenProps) {
               />
             ) : null;
 
-          // Category label mapping for display
-          const kategoriLabels: Record<string, string> = {
-            gida: "Gıda",
-            doviz: "Döviz",
-            altin: "Altın",
-            akaryakit: "Akaryakıt",
-            fatura: "Fatura",
-            ulasim: "Ulaşım",
-            barinma: "Barınma",
-            capa: "Çapa",
-          };
-          const kategoriLabel = kategoriLabels[row.item.kategori] ?? row.item.kategori;
+          const kat = kategoriLabel(row.item.kategori);
 
           return (
             <Link
@@ -216,7 +206,7 @@ export default function HomeScreen({ rows, featured }: HomeScreenProps) {
               <ItemRow
                 icon={<Icon name={row.iconName} size={20} />}
                 name={row.item.isim}
-                category={`${kategoriLabel} · ${row.item.birim}`}
+                category={`${kat} · ${row.item.birim}`}
                 value={
                   <span
                     style={{

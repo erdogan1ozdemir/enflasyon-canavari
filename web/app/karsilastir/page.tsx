@@ -1,19 +1,9 @@
 import { loadItems, loadPrices } from "@ec/data";
 import type { PricePoint } from "@ec/data";
 import { seriBul } from "@/lib/viewmodel";
+import type { CompareItemVM } from "@/lib/viewmodel";
 import { iconForItem } from "@/lib/icon-map";
 import CompareScreen from "@/components/screens/CompareScreen";
-
-// ─── Types (serializable) ────────────────────────────────────────────────────
-
-export interface CompareItemVM {
-  id: string;
-  isim: string;
-  iconName: string;
-  birim: string;
-  /** Years that have price data (may be empty). */
-  yillar: number[];
-}
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 

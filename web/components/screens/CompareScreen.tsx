@@ -9,7 +9,7 @@ import SegmentedControl from "@/components/ui/SegmentedControl";
 import BigStat from "@/components/data/BigStat";
 import SourceBadge from "@/components/data/SourceBadge";
 import TrendPill from "@/components/data/TrendPill";
-import type { CompareItemVM } from "@/app/karsilastir/page";
+import type { CompareItemVM } from "@/lib/viewmodel";
 
 // ─── Props ───────────────────────────────────────────────────────────────────
 

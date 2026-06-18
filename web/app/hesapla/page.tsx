@@ -32,11 +32,6 @@ export default function HesaplaPage() {
   // Does the index item have any price data?
   const hasEndeks = prices.some((p: PricePoint) => p.itemId === endeksId);
 
-  // Does any non-index item have price data for a "product" (non-capa) category?
-  const hasUrun = items
-    .filter((i) => i.id !== endeksId && i.kategori !== "capa")
-    .some((i) => prices.some((p: PricePoint) => p.itemId === i.id));
-
   return (
     <main className="mx-auto max-w-2xl">
       <CalcScreen
@@ -46,7 +41,6 @@ export default function HesaplaPage() {
         maxYil={maxYil}
         endeksId={endeksId}
         hasEndeks={hasEndeks}
-        hasUrun={hasUrun}
       />
     </main>
   );

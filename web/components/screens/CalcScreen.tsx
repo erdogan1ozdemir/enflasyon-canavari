@@ -18,7 +18,6 @@ interface CalcScreenProps {
   maxYil: number;
   endeksId: string;
   hasEndeks: boolean;
-  hasUrun: boolean;
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -62,6 +61,14 @@ export default function CalcScreen({
     if (!hasEndeks) return null;
     return enflasyonaGore(prices, endeksId, tutar, yil, maxYil);
   }, [prices, endeksId, tutar, yil, maxYil, hasEndeks]);
+
+  // Derive source info from the latest price point for endeksId
+  const endeksKaynak = useMemo(() => {
+    const latest = prices
+      .filter((p) => p.itemId === endeksId)
+      .sort((a, b) => b.yil - a.yil)[0];
+    return latest ?? null;
+  }, [prices, endeksId]);
 
   // ── Input handlers ──
 
@@ -219,7 +226,12 @@ export default function CalcScreen({
             caption={`${yil} yılındaki ${formatTL(tutar)} bugüne göre`}
           />
           <div style={{ marginTop: 12 }}>
-            <SourceBadge source="TÜİK" label="TÜFE" status="verified" size="sm" />
+            <SourceBadge
+              source={endeksKaynak ? endeksKaynak.kaynakAdi : "TÜİK"}
+              label={endeksKaynak ? endeksKaynak.tip : "TÜFE"}
+              status={endeksKaynak ? (endeksKaynak.dogrulama === "dogrulanmis" ? "verified" : "pending") : "pending"}
+              size="sm"
+            />
           </div>
         </div>
       ) : (

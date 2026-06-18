@@ -4,6 +4,15 @@ import { iconForItem } from "./icon-map";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
+export interface CompareItemVM {
+  id: string;
+  isim: string;
+  iconName: string;
+  birim: string;
+  /** Years that have price data (may be empty). */
+  yillar: number[];
+}
+
 export interface KaynakInfo {
   ad: string;
   tip: "net" | "ortalama";

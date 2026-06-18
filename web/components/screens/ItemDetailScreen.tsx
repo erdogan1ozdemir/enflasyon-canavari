@@ -11,6 +11,7 @@ import BigStat from "@/components/data/BigStat";
 import SourceBadge from "@/components/data/SourceBadge";
 import LineChart from "@/components/data/LineChart";
 import SegmentedControl from "@/components/ui/SegmentedControl";
+import { kategoriLabel } from "@/lib/labels";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -31,26 +32,13 @@ export interface ItemDetailVM {
   summary: Partial<Record<Tip, TipSummary>>;
 }
 
-// ─── Kategori label mapping ───────────────────────────────────────────────────
-
-const KATEGORI_LABELS: Record<string, string> = {
-  gida: "Gıda",
-  doviz: "Döviz",
-  altin: "Altın",
-  akaryakit: "Akaryakıt",
-  fatura: "Fatura",
-  ulasim: "Ulaşım",
-  barinma: "Barınma",
-  capa: "Çapa",
-};
-
 // ─── ItemDetailScreen ─────────────────────────────────────────────────────────
 
 export default function ItemDetailScreen({ vm }: { vm: ItemDetailVM }) {
   const { item, iconName, tips, series, summary } = vm;
   const [selectedTip, setSelectedTip] = useState<Tip>(tips[0] ?? "net");
 
-  const kategoriLabel = KATEGORI_LABELS[item.kategori] ?? item.kategori;
+  const kat = kategoriLabel(item.kategori);
 
   const currentSummary = summary[selectedTip] ?? null;
   const currentSeries = series[selectedTip] ?? [];
@@ -107,7 +95,7 @@ export default function ItemDetailScreen({ vm }: { vm: ItemDetailVM }) {
             {item.isim}
           </div>
           <div style={{ fontSize: 13, color: "var(--text-muted)" }}>
-            {kategoriLabel} · {item.birim}
+            {kat} · {item.birim}
           </div>
         </div>
       </div>
