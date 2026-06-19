@@ -3,5 +3,6 @@
   { "ad": "TCMB EVDS", "tip": "resmi-api", "url": "https://evds2.tcmb.gov.tr", "metodoloji": "Günlük döviz ve altın kurları, yıllık ortalama" },
   { "ad": "Resmi Gazete", "tip": "elle", "url": "https://www.resmigazete.gov.tr", "metodoloji": "Asgari ücret tespit komisyonu kararları, net tutar" },
   { "ad": "Aile ve Sosyal Hizmetler Bakanlığı", "tip": "elle", "url": "https://www.aile.gov.tr/media/35787/yillar-itibariyle-net-brut-asgari-ucretler.pdf", "metodoloji": "Yıllar itibarıyla net/brüt asgari ücret tablosu (16 yaşını dolduranlar, net aylık). 2005-2021 yıl başı (Ocak) tutarları." },
-  { "ad": "Çalışma ve Sosyal Güvenlik Bakanlığı", "tip": "elle", "url": "https://www.csgb.gov.tr/poco-pages/asgari-ucret/", "metodoloji": "Asgari ücret tespit komisyonu kararları, net aylık tutar. 2022-2026 yıl başı (Ocak) tutarları." }
+  { "ad": "Çalışma ve Sosyal Güvenlik Bakanlığı", "tip": "elle", "url": "https://www.csgb.gov.tr/poco-pages/asgari-ucret/", "metodoloji": "Asgari ücret tespit komisyonu kararları, net aylık tutar. 2022-2026 yıl başı (Ocak) tutarları." },
+  { "ad": "doviz724.com", "tip": "elle", "url": "https://www.doviz724.com/yillara-gore-ortalama-amerikan-dolari-kuru.html", "metodoloji": "Yıllık ortalama USD/TRY alış kuru (TCMB günlük kurlarından derleme)." }
 ]
