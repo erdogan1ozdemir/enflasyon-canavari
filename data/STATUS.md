@@ -4,17 +4,19 @@
 
 **Son güncelleme:** 2026-06-19
 
-## Mevcut veri (6 kalem, 110 fiyat noktası, hepsi `dogrulanmis`)
-| Kalem (id) | Yıllar | Nokta | Kaynak | tip |
+## Mevcut veri (8 kalem, 144 fiyat noktası, hepsi `dogrulanmis`)
+| Kalem (id) | Yıllar | Nokta | Kaynak | tip / birim |
 |---|---|---|---|---|
-| asgari-ucret | 2005–2026 | 22 | Aile Bak. + ÇSGB (resmi) | net |
-| usd | 2005–2026 | 22 | doviz724 (TCMB ort.) | ortalama |
-| tufe | 2005–2026 | 22 | TÜİK (hakedis) | ortalama |
-| gram-altin | 2005–2025 | 21 | fiyonk (USD×ons çapraz) | ortalama |
-| benzin | 2021–2026 | 6 | EPDK (hakedis) | ortalama |
-| ekmek | 2005–2021 | 17 | TÜİK (verikaynagi, **Playwright** ile XHR'dan) — birim **kg** | ortalama |
+| asgari-ucret | 2005–2026 | 22 | Aile Bak. + ÇSGB (resmi) | net / TL |
+| usd | 2005–2026 | 22 | doviz724 (TCMB ort.) | ortalama / USD |
+| tufe | 2005–2026 | 22 | TÜİK (hakedis) | ortalama / endeks |
+| gram-altin | 2005–2025 | 21 | fiyonk (USD×ons çapraz) | ortalama / gram |
+| benzin | 2021–2026 | 6 | EPDK (hakedis) | ortalama / litre |
+| ekmek | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
+| tavuk | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
+| yumurta | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / adet |
 
-> Playwright yöntemi: verikaynagi grafiklerinin verisi `/api/graph/.../*.json` XHR'larında; tarayıcıda fetch edip aylıktan yıllık ortalama hesaplandı. Diğer TÜİK ürünleri (patates, su…) aynı yöntemle ~2022'ye kadar alınabilir.
+> **Playwright yöntemi (TÜİK ürünleri):** verikaynagi grafik verisi `/api/graph/.../*.json` XHR'larında (Plotly `{data:[{x,y}]}` VEYA Highcharts `{options:{series:[{data:[["2005 Ocak",v],…]}]}}` formatında). Tarayıcıda fetch → aylıktan yıllık ortalama. Sayfa URL'i aramayla bulunur (kategori sayfası bot-engelli). Çoğu seri ~2021/2022'de bitiyor. Bu yöntemle su/patates/süt vb. de eklenebilir.
 
 Fiyat dosyaları: `prices/{gida(boş),capa,doviz,endeks,altin,akaryakit}.json` → `src/load.ts` `priceFiles`.
 

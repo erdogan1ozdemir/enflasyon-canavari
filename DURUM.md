@@ -23,7 +23,7 @@ Sıra (onaylı):
 2. ✅ Karşılaştır ekranı düzeltmeleri (TÜFE hedefi çıktı, yıl-seçici taşması giderildi, akıllı varsayılan)
 3. ✅ Hesapla çift yön ("o gün→bugün" + "bugün→o gün")
 4. ✅ Kaynaklar → Profil (`/profil`, nav "Profil"; Hakkında + Tema + Cüzdan "yakında" + Kaynaklar bölümü; eski `/kaynaklar` → `/profil` yönlendirme)
-5. 🔶 Eksik veri — **ekmek 2005-2021 eklendi** (TÜİK, verikaynagi'den Playwright/XHR ile; birim kg). Karşılaştır birim etiketi düzeltildi (adet→gerçek birim). döner/çay (resmi seri yok), su, ekmek 2022-26, benzin 2005-20 → pending.
+5. 🔶 Eksik veri — **ekmek + tavuk eti + yumurta 2005-2021 eklendi** (TÜİK, verikaynagi'den Playwright/XHR; 8 kalem, 144 nokta). Karşılaştır birim etiketi düzeltildi (adet→gerçek birim). Pending: su/patates vb. (aynı yöntemle), döner/çay (resmi seri yok), ekmek/tavuk/yumurta 2022-26, benzin 2005-20.
 6. ⏳ Tasarım cila (yeni design skill'leriyle)
 
 ## Bilinen sorunlar / TODO
