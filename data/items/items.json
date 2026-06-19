@@ -3,5 +3,6 @@
   { "id": "usd", "isim": "Amerikan Doları", "kategori": "doviz", "birim": "USD", "ikon": "currency-dollar", "aciklama": "1 USD karşılığı TL" },
   { "id": "gram-altin", "isim": "Gram Altın", "kategori": "altin", "birim": "gram", "ikon": "coin", "aciklama": "1 gram has altın" },
   { "id": "asgari-ucret", "isim": "Asgari Ücret", "kategori": "capa", "birim": "TL", "ikon": "wallet", "aciklama": "Net aylık asgari ücret" },
-  { "id": "tufe", "isim": "TÜFE (Enflasyon)", "kategori": "capa", "birim": "endeks", "ikon": "chart", "aciklama": "Tüketici Fiyat Endeksi (2003=100), yıllık ortalama" }
+  { "id": "tufe", "isim": "TÜFE (Enflasyon)", "kategori": "capa", "birim": "endeks", "ikon": "chart", "aciklama": "Tüketici Fiyat Endeksi (2003=100), yıllık ortalama" },
+  { "id": "benzin", "isim": "Benzin", "kategori": "akaryakit", "birim": "litre", "ikon": "fuel", "aciklama": "Kurşunsuz benzin 95 oktan, litre" }
 ]
