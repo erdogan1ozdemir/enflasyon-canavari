@@ -4,7 +4,7 @@
 
 **Son güncelleme:** 2026-06-19
 
-## Mevcut veri (9 kalem, 161 fiyat noktası, hepsi `dogrulanmis`)
+## Mevcut veri (11 kalem, 198 fiyat noktası, hepsi `dogrulanmis`)
 | Kalem (id) | Yıllar | Nokta | Kaynak | tip / birim |
 |---|---|---|---|---|
 | asgari-ucret | 2005–2026 | 22 | Aile Bak. + ÇSGB (resmi) | net / TL |
@@ -16,8 +16,11 @@
 | tavuk | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
 | yumurta | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / adet |
 | patates | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
+| sogan | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
+| sinema | 2005–2024 | 20 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / adet — kategori **hizmet** |
 
-> **Hazır bekleyen (extract edildi, eklenmedi):** sinema bileti (2005–2024, tam aralık — "hizmet" kategorisi + URL doğrulaması gerek), sigara (2013–2024), kuru soğan, pirinç. Aynı Playwright yöntemiyle eklenebilir.
+> Yeni kategori: **hizmet** (schema KATEGORILER + labels + icon-map `ticket` + Icon `Ticket`). Sinema "1 maaşla kaç bilet" karşılaştırmasını açar (2005-2024 tam aralık).
+> **Hazır bekleyen (extract edildi):** sigara (2013–2024), pirinç. Aynı Playwright yöntemiyle eklenebilir.
 
 > **Playwright yöntemi (TÜİK ürünleri):** verikaynagi grafik verisi `/api/graph/.../*.json` XHR'larında (Plotly `{data:[{x,y}]}` VEYA Highcharts `{options:{series:[{data:[["2005 Ocak",v],…]}]}}` formatında). Tarayıcıda fetch → aylıktan yıllık ortalama. Sayfa URL'i aramayla bulunur (kategori sayfası bot-engelli). Çoğu seri ~2021/2022'de bitiyor. Bu yöntemle su/patates/süt vb. de eklenebilir.
 

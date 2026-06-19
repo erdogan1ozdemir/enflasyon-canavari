@@ -9,6 +9,7 @@ export const KATEGORI_LABELS: Record<string, string> = {
   ulasim: "Ulaşım",
   barinma: "Barınma",
   capa: "Çapa",
+  hizmet: "Hizmet",
 };
 
 /**

@@ -9,6 +9,7 @@ export const KATEGORILER = [
   "ulasim",
   "barinma",
   "capa",
+  "hizmet",
 ] as const;
 
 export const BIRIMLER = [

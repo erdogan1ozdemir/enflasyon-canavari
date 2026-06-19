@@ -6,6 +6,7 @@ import dovizPrices from "../prices/doviz.json";
 import endeksPrices from "../prices/endeks.json";
 import altinPrices from "../prices/altin.json";
 import akaryakitPrices from "../prices/akaryakit.json";
+import hizmetPrices from "../prices/hizmet.json";
 import { ItemSchema, PricePointSchema, SourceSchema } from "./schema";
 import type { Item, PricePoint, Source } from "./types";
 
@@ -24,6 +25,7 @@ const priceFiles: unknown[][] = [
   endeksPrices as unknown[],
   altinPrices as unknown[],
   akaryakitPrices as unknown[],
+  hizmetPrices as unknown[],
 ];
 
 export function loadPrices(): PricePoint[] {

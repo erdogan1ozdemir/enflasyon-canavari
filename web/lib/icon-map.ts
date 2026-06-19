@@ -11,7 +11,7 @@ export function iconForItem(item: Item): string {
     "chevronRight", "chevronDown", "x", "check", "info",
     "home", "chart", "scale", "calculator", "file",
     "sun", "moon", "wheat", "food", "dollar", "gem",
-    "fuel", "banknote", "drumstick",
+    "fuel", "banknote", "drumstick", "user", "wallet", "ticket",
   ]);
 
   if (knownIcons.has(item.ikon)) return item.ikon;
@@ -26,6 +26,7 @@ export function iconForItem(item: Item): string {
     ulasim: "home",
     barinma: "home",
     capa: "banknote",
+    hizmet: "ticket",
   };
 
   return kategoriMap[item.kategori] ?? "chart";

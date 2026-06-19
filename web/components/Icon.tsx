@@ -25,6 +25,7 @@ import {
   Drumstick,
   User,
   Wallet,
+  Ticket,
   type LucideIcon,
 } from "lucide-react";
 import type React from "react";
@@ -56,6 +57,7 @@ const MAP: Record<string, LucideIcon> = {
   drumstick: Drumstick,
   user: User,
   wallet: Wallet,
+  ticket: Ticket,
 };
 
 export type IconName = keyof typeof MAP;
