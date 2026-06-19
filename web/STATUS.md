@@ -16,7 +16,8 @@
 - Home (kalem listesi + öne çıkan), Kalem Detay (hero + grafik + tablo), Hesapla (TÜFE), Kaynaklar.
 
 ## Bilinen sorunlar / TODO
-- **Karşılaştır:** TÜFE "neyi alır" hedefinde görünüyor (çıkarılmalı); yıl seçiciler kartı taşırıyor (layout); varsayılan kombo boş ("veri yok") geliyor (verisi olan komboya düşmeli). → Faz 3 Adım 2
+- ✅ **Karşılaştır** (Faz 3 Adım 2 — çözüldü): TÜFE hedeflerden çıkarıldı (`birim !== "endeks"`); yıl seçiciler iki yatay-kaydırmalı satıra alındı (tüm yıllar, taşma yok); akıllı varsayılan (verisi olan hedef + örtüşen yıllar → açılışta gerçek sonuç). `YearPicker` yerel bileşeni eklendi.
+  - Nüans (Adım 6/cila): satın alma gücü artışı şu an coral-yukarı; olumlu olduğu için renk semantiği gözden geçirilebilir.
 - **Hesapla:** yalnız "o gün→bugün"; ters yön ("bugün→o gün") eklenecek. → Adım 3
 - **Kaynaklar → Profil:** `/profil`'e dönüştürülecek (Hakkında + Tema + kaynaklar + "yakında" cüzdan). → Adım 4
 - **ShareSheet** ekranlara bağlı değil; dinamik OG yok.

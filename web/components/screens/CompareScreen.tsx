@@ -43,6 +43,64 @@ function buildYears(min: number, max: number): number[] {
   return years;
 }
 
+// Horizontal scroll row of year pills (used for Yıl A and Yıl B)
+function YearPicker({
+  label,
+  years,
+  value,
+  onChange,
+}: {
+  label: string;
+  years: number[];
+  value: number;
+  onChange: (y: number) => void;
+}) {
+  return (
+    <div>
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.07em",
+          textTransform: "uppercase",
+          color: "var(--text-faint)",
+          marginBottom: 8,
+        }}
+      >
+        {label}
+      </div>
+      <div style={{ display: "flex", gap: 6, overflowX: "auto", paddingBottom: 2 }}>
+        {years.map((y) => {
+          const on = y === value;
+          return (
+            <button
+              key={y}
+              type="button"
+              onClick={() => onChange(y)}
+              style={{
+                flexShrink: 0,
+                padding: "6px 12px",
+                borderRadius: "var(--radius-pill)",
+                cursor: "pointer",
+                fontSize: 13,
+                fontWeight: 600,
+                fontFamily: "var(--font-data)",
+                border: "1px solid " + (on ? "transparent" : "var(--border-subtle)"),
+                background: on ? "var(--accent)" : "var(--surface-card)",
+                color: on ? "#fff" : "var(--text-body)",
+                transition:
+                  "background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out)",
+              }}
+            >
+              {y}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ─── CompareScreen ────────────────────────────────────────────────────────────
 
 export default function CompareScreen({
@@ -54,36 +112,29 @@ export default function CompareScreen({
   // Anchor: items that represent money/value and exist in our item list
   const anchors = items.filter((i) => ANCHOR_IDS.includes(i.id as (typeof ANCHOR_IDS)[number]));
 
-  // Targets: the other items (non-anchor)
-  const targets = items.filter((i) => !ANCHOR_IDS.includes(i.id as (typeof ANCHOR_IDS)[number]));
+  // Targets: non-anchor, purchasable items (exclude index series like TÜFE)
+  const targets = items.filter(
+    (i) => !ANCHOR_IDS.includes(i.id as (typeof ANCHOR_IDS)[number]) && i.birim !== "endeks",
+  );
 
   // Default anchor = asgari-ucret if present, else first anchor
   const defaultAnchorId = anchors.find((a) => a.id === "asgari-ucret")?.id ?? anchors[0]?.id ?? "asgari-ucret";
-  // Default target = first target item
-  const defaultTargetId = targets[0]?.id ?? "ekmek";
+  // Default target = first target WITH data, else first target
+  const defaultTargetId = targets.find((t) => t.yillar.length > 0)?.id ?? targets[0]?.id ?? "ekmek";
+
+  // Default years: overlap of default anchor & target data, else full range
+  const defAnchorYears = anchors.find((a) => a.id === defaultAnchorId)?.yillar ?? [];
+  const defTargetYears = targets.find((t) => t.id === defaultTargetId)?.yillar ?? [];
+  const defOverlap = defAnchorYears.filter((y) => defTargetYears.includes(y));
+  const defaultYilA = defOverlap.length > 0 ? Math.min(...defOverlap) : minYil;
+  const defaultYilB = defOverlap.length > 0 ? Math.max(...defOverlap) : maxYil;
 
   const [anchorId, setAnchorId] = useState(defaultAnchorId);
   const [targetId, setTargetId] = useState(defaultTargetId);
-  const [yilA, setYilA] = useState(minYil);
-  const [yilB, setYilB] = useState(maxYil);
+  const [yilA, setYilA] = useState(defaultYilA);
+  const [yilB, setYilB] = useState(defaultYilB);
 
   const allYears = useMemo(() => buildYears(minYil, maxYil), [minYil, maxYil]);
-
-  // ── Year selector options ──
-  // Show a reasonable subset of years to avoid overcrowding the SegmentedControl.
-  // Use first, some midpoints, and last. Max ~6 options.
-  const yearOptions = useMemo(() => {
-    if (allYears.length <= 6) return allYears.map(String);
-    // Pick ~6 evenly-spaced years
-    const step = Math.floor((allYears.length - 1) / 5);
-    const picked: number[] = [];
-    for (let i = 0; i <= 5; i++) {
-      const idx = Math.min(i * step, allYears.length - 1);
-      picked.push(allYears[idx]!);
-    }
-    // Deduplicate
-    return Array.from(new Set(picked)).map(String);
-  }, [allYears]);
 
   // ── Calculation ──
   const anchor = items.find((i) => i.id === anchorId);
@@ -221,50 +272,10 @@ export default function CompareScreen({
           </div>
         )}
 
-        {/* Year selectors */}
-        <div style={{ display: "flex", gap: 12 }}>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.07em",
-                textTransform: "uppercase",
-                color: "var(--text-faint)",
-                marginBottom: 8,
-              }}
-            >
-              Yıl A
-            </div>
-            <SegmentedControl
-              size="sm"
-              value={String(yilA)}
-              onChange={(v) => setYilA(Number(v))}
-              options={yearOptions}
-              style={{ width: "100%" }}
-            />
-          </div>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.07em",
-                textTransform: "uppercase",
-                color: "var(--text-faint)",
-                marginBottom: 8,
-              }}
-            >
-              Yıl B
-            </div>
-            <SegmentedControl
-              size="sm"
-              value={String(yilB)}
-              onChange={(v) => setYilB(Number(v))}
-              options={yearOptions}
-              style={{ width: "100%" }}
-            />
-          </div>
+        {/* Year selectors — stacked scroll rows, all years selectable */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <YearPicker label="Yıl A" years={allYears} value={yilA} onChange={setYilA} />
+          <YearPicker label="Yıl B" years={allYears} value={yilB} onChange={setYilB} />
         </div>
       </Card>
 
