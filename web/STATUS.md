@@ -18,7 +18,7 @@
 ## Bilinen sorunlar / TODO
 - ✅ **Karşılaştır** (Faz 3 Adım 2 — çözüldü): TÜFE hedeflerden çıkarıldı (`birim !== "endeks"`); yıl seçiciler iki yatay-kaydırmalı satıra alındı (tüm yıllar, taşma yok); akıllı varsayılan (verisi olan hedef + örtüşen yıllar → açılışta gerçek sonuç). `YearPicker` yerel bileşeni eklendi.
   - Nüans (Adım 6/cila): satın alma gücü artışı şu an coral-yukarı; olumlu olduğu için renk semantiği gözden geçirilebilir.
-- **Hesapla:** yalnız "o gün→bugün"; ters yön ("bugün→o gün") eklenecek. → Adım 3
+- ✅ **Hesapla** (Faz 3 Adım 3 — çözüldü): yön toggle eklendi — "O gün → bugün" ve "Bugün → o gün". `enflasyonaGore` yön parametreleriyle çağrılıyor; etiket/eyebrow/caption yöne göre değişiyor.
 - **Kaynaklar → Profil:** `/profil`'e dönüştürülecek (Hakkında + Tema + kaynaklar + "yakında" cüzdan). → Adım 4
 - **ShareSheet** ekranlara bağlı değil; dinamik OG yok.
 - Veri olmayan kalemler "veri yok" gösteriyor (ekmek vb.).

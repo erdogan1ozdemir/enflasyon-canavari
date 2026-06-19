@@ -6,6 +6,7 @@ import type { PricePoint } from "@ec/data";
 import { Icon } from "@/components/Icon";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
+import SegmentedControl from "@/components/ui/SegmentedControl";
 import BigStat from "@/components/data/BigStat";
 import SourceBadge from "@/components/data/SourceBadge";
 
@@ -51,16 +52,29 @@ export default function CalcScreen({
   endeksId,
   hasEndeks,
 }: CalcScreenProps) {
+  // "ileri" = o gün → bugün; "geri" = bugün → o gün
+  const [yon, setYon] = useState<"ileri" | "geri">("ileri");
   const [tutar, setTutar] = useState<number>(1000);
   const [yil, setYil] = useState<number>(() => defaultYil(availableYears, minYil));
 
   const yearOptions = useMemo(() => buildYearOptions(availableYears), [availableYears]);
 
-  // Compute inflation-adjusted value
-  const bugunkuKarsilik = useMemo(() => {
+  // Compute inflation-adjusted value (direction-aware)
+  const sonucDeger = useMemo(() => {
     if (!hasEndeks) return null;
-    return enflasyonaGore(prices, endeksId, tutar, yil, maxYil);
-  }, [prices, endeksId, tutar, yil, maxYil, hasEndeks]);
+    return yon === "ileri"
+      ? enflasyonaGore(prices, endeksId, tutar, yil, maxYil) // yil → bugün
+      : enflasyonaGore(prices, endeksId, tutar, maxYil, yil); // bugün → yil
+  }, [prices, endeksId, tutar, yil, maxYil, hasEndeks, yon]);
+
+  // Direction-aware labels
+  const tutarLabel = yon === "ileri" ? "O günkü tutar (TL)" : "Bugünkü tutar (TL)";
+  const yilLabel = yon === "ileri" ? "Hangi yıl" : "Hangi yıla göre";
+  const sonucEyebrow = yon === "ileri" ? "BUGÜNKÜ KARŞILIĞI" : `${yil} KARŞILIĞI`;
+  const sonucCaption =
+    yon === "ileri"
+      ? `${yil} yılındaki ${formatTL(tutar)} bugüne göre`
+      : `bugünkü ${formatTL(tutar)}, ${yil} yılında`;
 
   // Derive source info from the latest price point for endeksId
   const endeksKaynak = useMemo(() => {
@@ -110,6 +124,18 @@ export default function CalcScreen({
       {/* ── Input card ── */}
       <Card padding="md" style={{ display: "flex", flexDirection: "column", gap: 18 }}>
 
+        {/* Direction toggle */}
+        <SegmentedControl
+          size="sm"
+          value={yon}
+          onChange={(v) => setYon(v as "ileri" | "geri")}
+          options={[
+            { value: "ileri", label: "O gün → bugün" },
+            { value: "geri", label: "Bugün → o gün" },
+          ]}
+          style={{ width: "100%" }}
+        />
+
         {/* Amount input */}
         <div>
           <div
@@ -122,7 +148,7 @@ export default function CalcScreen({
               marginBottom: 8,
             }}
           >
-            O günkü tutar (TL)
+            {tutarLabel}
           </div>
           <Input
             type="number"
@@ -150,7 +176,7 @@ export default function CalcScreen({
               marginBottom: 8,
             }}
           >
-            Hangi yıl
+            {yilLabel}
           </div>
           {yearOptions.length > 0 ? (
             <div
@@ -207,7 +233,7 @@ export default function CalcScreen({
       </Card>
 
       {/* ── Result area ── */}
-      {bugunkuKarsilik !== null ? (
+      {sonucDeger !== null ? (
         // Result card — shown when we have data and a valid calculation
         <div
           data-theme="dark"
@@ -219,11 +245,11 @@ export default function CalcScreen({
           }}
         >
           <BigStat
-            eyebrow="BUGÜNKÜ KARŞILIĞI"
-            value={formatTL(bugunkuKarsilik)}
+            eyebrow={sonucEyebrow}
+            value={formatTL(sonucDeger)}
             size="lg"
             tone="accent"
-            caption={`${yil} yılındaki ${formatTL(tutar)} bugüne göre`}
+            caption={sonucCaption}
           />
           <div style={{ marginTop: 12 }}>
             <SourceBadge
