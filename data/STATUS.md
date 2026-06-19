@@ -1,0 +1,33 @@
+# data/ — DURUM
+
+> `@ec/data` — veri katmanı + şema + hesap motoru. Yaşayan durum/TODO. Ana izleyici: [../DURUM.md](../DURUM.md).
+
+**Son güncelleme:** 2026-06-19
+
+## Mevcut veri (6 kalem, 93 fiyat noktası, hepsi `dogrulanmis`)
+| Kalem (id) | Yıllar | Nokta | Kaynak | tip |
+|---|---|---|---|---|
+| asgari-ucret | 2005–2026 | 22 | Aile Bak. + ÇSGB (resmi) | net |
+| usd | 2005–2026 | 22 | doviz724 (TCMB ort.) | ortalama |
+| tufe | 2005–2026 | 22 | TÜİK (hakedis) | ortalama |
+| gram-altin | 2005–2025 | 21 | fiyonk (USD×ons çapraz) | ortalama |
+| benzin | 2021–2026 | 6 | EPDK (hakedis) | ortalama |
+| ekmek | — | 0 | (veri yok) | — |
+
+Fiyat dosyaları: `prices/{gida(boş),capa,doviz,endeks,altin,akaryakit}.json` → `src/load.ts` `priceFiles`.
+
+## Şema & motor
+- `src/schema.ts` (Item/PricePoint/Source, KATEGORILER/BIRIMLER/KAYNAK_TIPLERI), `src/types.ts`.
+- `src/load.ts` (statik JSON import), `src/validate.ts` (referans + çift kayıt).
+- `src/calc.ts` — fiyatBul, degisim, satinAlmaGucu, satinAlmaGucuKarsilastir, kacXEder, enflasyonaGore, formatTL, formatSayi. (TDD)
+
+## Eksik / TODO (Faz 3 Adım 5)
+- **Ürün fiyatları:** ekmek, tavuk döner, su, çay… — güvenilir yıl-yıl seri zor (muhtemelen TÜİK madde fiyatları / elle kürasyon). Karşılaştır ekranını canlandırmak için gerekli (çapa + ürün).
+- **Benzin 2005–2020:** EPDK eski bültenleri sorgu-arkası; güvenilir kaynak aranacak.
+- **Gram altın 2026:** kaynak 2025'te bitiyor; 2026 eklenecek.
+
+## Yeni veri eklerken
+1. İlgili `prices/<kategori>.json`'a nokta ekle (kaynak + tip zorunlu, doğru Türkçe diakritik).
+2. Yeni kategori dosyası ise `src/load.ts`'e import + `priceFiles`'a ekle.
+3. Yeni kalem ise `items/items.json`'a, yeni kaynak ise `sources/sources.json`'a ekle.
+4. `npm run validate:data` → hata yoksa tamam. Mümkünse çapraz doğrula.
