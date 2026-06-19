@@ -7,7 +7,7 @@ const TABS = [
   { href: "/", label: "Kalemler", icon: "home" },
   { href: "/karsilastir", label: "Karşılaştır", icon: "scale" },
   { href: "/hesapla", label: "Hesapla", icon: "calculator" },
-  { href: "/kaynaklar", label: "Kaynaklar", icon: "file" },
+  { href: "/profil", label: "Profil", icon: "user" },
 ] as const;
 
 function isActive(pathname: string, href: string): boolean {
