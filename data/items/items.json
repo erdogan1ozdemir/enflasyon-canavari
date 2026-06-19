@@ -1,5 +1,5 @@
 [
-  { "id": "ekmek", "isim": "Ekmek", "kategori": "gida", "birim": "adet", "ikon": "bread", "aciklama": "Standart somun ekmek" },
+  { "id": "ekmek", "isim": "Ekmek", "kategori": "gida", "birim": "kg", "ikon": "bread", "aciklama": "Ekmek (1 kg ortalama), TÜİK" },
   { "id": "usd", "isim": "Amerikan Doları", "kategori": "doviz", "birim": "USD", "ikon": "currency-dollar", "aciklama": "1 USD karşılığı TL" },
   { "id": "gram-altin", "isim": "Gram Altın", "kategori": "altin", "birim": "gram", "ikon": "coin", "aciklama": "1 gram has altın" },
   { "id": "asgari-ucret", "isim": "Asgari Ücret", "kategori": "capa", "birim": "TL", "ikon": "wallet", "aciklama": "Net aylık asgari ücret" },

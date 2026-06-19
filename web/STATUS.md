@@ -17,6 +17,7 @@
 
 ## Bilinen sorunlar / TODO
 - ✅ **Karşılaştır** (Faz 3 Adım 2 — çözüldü): TÜFE hedeflerden çıkarıldı (`birim !== "endeks"`); yıl seçiciler iki yatay-kaydırmalı satıra alındı (tüm yıllar, taşma yok); akıllı varsayılan (verisi olan hedef + örtüşen yıllar → açılışta gerçek sonuç). `YearPicker` yerel bileşeni eklendi.
+  - Birim etiketi düzeltildi (Adım 5): sonuç "adet" yerine hedefin gerçek birimini gösterir (ekmek→kg, benzin→litre).
   - Nüans (Adım 6/cila): satın alma gücü artışı şu an coral-yukarı; olumlu olduğu için renk semantiği gözden geçirilebilir.
 - ✅ **Hesapla** (Faz 3 Adım 3 — çözüldü): yön toggle eklendi — "O gün → bugün" ve "Bugün → o gün". `enflasyonaGore` yön parametreleriyle çağrılıyor; etiket/eyebrow/caption yöne göre değişiyor.
 - ✅ **Profil** (Faz 3 Adım 4 — çözüldü): `/profil` (`ProfileScreen`) — Hakkında + Tema (`ThemeSetting`: Sistem/Açık/Koyu) + Cüzdan&gelir-gider "Yakında" kartı + `SourcesScreen` bölümü. Nav "Profil" (user ikonu). Eski `/kaynaklar` → `/profil` redirect. Icon map'e `user`/`wallet` eklendi.

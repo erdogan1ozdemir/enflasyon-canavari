@@ -147,6 +147,7 @@ export default function CompareScreen({
 
   const anchorLabel = ANCHOR_HEADLINE[anchorId] ?? `1 ${anchor?.isim ?? anchorId}`;
   const targetIsim = target?.isim.toLowerCase() ?? targetId;
+  const targetBirim = target?.birim ?? "adet";
 
   // ── Kaynak info for anchor (to show SourceBadge) ──
   const anchorKaynak = useMemo(() => {
@@ -358,7 +359,7 @@ export default function CompareScreen({
           >
             <BigStat
               eyebrow={String(yilA)}
-              value={`${formatSayi(sonuc.a, sonuc.a >= 10 ? 0 : 1)} adet`}
+              value={`${formatSayi(sonuc.a, sonuc.a >= 10 ? 0 : 1)} ${targetBirim}`}
               size="md"
               tone="strong"
             />
@@ -369,7 +370,7 @@ export default function CompareScreen({
             />
             <BigStat
               eyebrow={String(yilB)}
-              value={`${formatSayi(sonuc.b, sonuc.b >= 10 ? 0 : 1)} adet`}
+              value={`${formatSayi(sonuc.b, sonuc.b >= 10 ? 0 : 1)} ${targetBirim}`}
               size="lg"
               tone="accent"
             />
