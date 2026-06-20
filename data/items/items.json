@@ -4,6 +4,7 @@
   { "id": "yumurta", "isim": "Yumurta", "kategori": "gida", "birim": "adet", "ikon": "food", "aciklama": "Yumurta (adet ortalama), TÜİK" },
   { "id": "patates", "isim": "Patates", "kategori": "gida", "birim": "kg", "ikon": "food", "aciklama": "Patates (1 kg ortalama), TÜİK" },
   { "id": "sogan", "isim": "Kuru Soğan", "kategori": "gida", "birim": "kg", "ikon": "food", "aciklama": "Kuru soğan (1 kg ortalama), TÜİK" },
+  { "id": "pirinc", "isim": "Pirinç", "kategori": "gida", "birim": "kg", "ikon": "food", "aciklama": "Pirinç (1 kg ortalama), TÜİK" },
   { "id": "sinema", "isim": "Sinema Bileti", "kategori": "hizmet", "birim": "adet", "ikon": "ticket", "aciklama": "Sinema bileti (ortalama), TÜİK" },
   { "id": "usd", "isim": "Amerikan Doları", "kategori": "doviz", "birim": "USD", "ikon": "currency-dollar", "aciklama": "1 USD karşılığı TL" },
   { "id": "gram-altin", "isim": "Gram Altın", "kategori": "altin", "birim": "gram", "ikon": "coin", "aciklama": "1 gram has altın" },
