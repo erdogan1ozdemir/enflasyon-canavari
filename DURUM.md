@@ -23,7 +23,7 @@ Sıra (onaylı):
 2. ✅ Karşılaştır ekranı düzeltmeleri (TÜFE hedefi çıktı, yıl-seçici taşması giderildi, akıllı varsayılan)
 3. ✅ Hesapla çift yön ("o gün→bugün" + "bugün→o gün")
 4. ✅ Kaynaklar → Profil (`/profil`, nav "Profil"; Hakkında + Tema + Cüzdan "yakında" + Kaynaklar bölümü; eski `/kaynaklar` → `/profil` yönlendirme)
-5. 🔶 Eksik veri — **7 ürün eklendi** (TÜİK, verikaynagi'den Playwright/XHR): ekmek, tavuk, yumurta, patates, soğan (gıda); sinema bileti (yeni **hizmet** kategorisi, 2005-2024). **11 kalem, 198 nokta.** Karşılaştır birim etiketi düzeltildi. Hazır bekleyen: sigara, pirinç. Pending: döner/çay (resmi seri yok), gıda ürünlerinin 2022-26'sı, benzin 2005-20.
+5. ✅ Eksik veri — **7 ürün eklendi** (TÜİK, verikaynagi'den Playwright/XHR): ekmek, tavuk, yumurta, patates, soğan, pirinç (gıda); sinema bileti (yeni **hizmet** kategorisi, 2005-2024). **12 kalem, 208 nokta.** Karşılaştır birim etiketi düzeltildi. Sigara deep research'le incelendi → marka geçmişi doğrulanamadı, atlandı. Pending (kaynak yok): döner/çay, gıda ürünlerinin 2022-26'sı, benzin 2005-20.
 6. ⏳ Tasarım cila (yeni design skill'leriyle)
 
 ## Bilinen sorunlar / TODO
