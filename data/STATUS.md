@@ -4,7 +4,7 @@
 
 **Son güncelleme:** 2026-06-19
 
-## Mevcut veri (11 kalem, 198 fiyat noktası, hepsi `dogrulanmis`)
+## Mevcut veri (12 kalem, 208 fiyat noktası, hepsi `dogrulanmis`)
 | Kalem (id) | Yıllar | Nokta | Kaynak | tip / birim |
 |---|---|---|---|---|
 | asgari-ucret | 2005–2026 | 22 | Aile Bak. + ÇSGB (resmi) | net / TL |
@@ -18,9 +18,10 @@
 | patates | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
 | sogan | 2005–2021 | 17 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg |
 | sinema | 2005–2024 | 20 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / adet — kategori **hizmet** |
+| pirinc | 2010–2019 | 10 | TÜİK (verikaynagi, Playwright/XHR) | ortalama / kg (dar aralık) |
 
 > Yeni kategori: **hizmet** (schema KATEGORILER + labels + icon-map `ticket` + Icon `Ticket`). Sinema "1 maaşla kaç bilet" karşılaştırmasını açar (2005-2024 tam aralık).
-> **Hazır bekleyen (extract edildi):** sigara (2013–2024), pirinç. Aynı Playwright yöntemiyle eklenebilir.
+> **Sigara markaları (Winston/Marlboro/Parliament):** marka-bazlı yıl-yıl geçmiş güvenilir kaynakta YOK — sadece güncel (2024-2026) snapshot fiyatlar var. TÜİK yalnızca genel "sigara" ortalaması tutar (2013-2024, extract edildi). Karar bekliyor.
 
 > **Playwright yöntemi (TÜİK ürünleri):** verikaynagi grafik verisi `/api/graph/.../*.json` XHR'larında (Plotly `{data:[{x,y}]}` VEYA Highcharts `{options:{series:[{data:[["2005 Ocak",v],…]}]}}` formatında). Tarayıcıda fetch → aylıktan yıllık ortalama. Sayfa URL'i aramayla bulunur (kategori sayfası bot-engelli). Çoğu seri ~2021/2022'de bitiyor. Bu yöntemle su/patates/süt vb. de eklenebilir.
 
