@@ -16,7 +16,7 @@ describe("seriBul", () => {
     for (let i = 1; i < s.length; i++) expect(s[i]![0]).toBeGreaterThan(s[i - 1]![0]);
   });
   it("verisi olmayan kalem boş seri", () => {
-    expect(seriBul(prices, "ekmek")).toEqual([]);
+    expect(seriBul(prices, "yok-boyle-kalem")).toEqual([]);
   });
 });
 
@@ -29,7 +29,9 @@ describe("itemViewModel", () => {
     expect(vm.kaynak?.dogrulanmis).toBe(true);
   });
   it("verisi olmayan kalem null alanlar", () => {
-    const vm = itemViewModel(items, prices, "ekmek");
+    // Sentetik: var olan ama hiç fiyatı olmayan bir kalem
+    const bosItem = { id: "bos", isim: "Boş", kategori: "gida", birim: "kg", ikon: "food", aciklama: "" };
+    const vm = itemViewModel([bosItem as (typeof items)[number]], [], "bos");
     expect(vm.seri).toEqual([]);
     expect(vm.guncel).toBeNull();
     expect(vm.degisim).toBeNull();
