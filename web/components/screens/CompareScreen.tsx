@@ -8,7 +8,6 @@ import Card from "@/components/ui/Card";
 import SegmentedControl from "@/components/ui/SegmentedControl";
 import BigStat from "@/components/data/BigStat";
 import SourceBadge from "@/components/data/SourceBadge";
-import TrendPill from "@/components/data/TrendPill";
 import type { CompareItemVM } from "@/lib/viewmodel";
 
 // ─── Props ───────────────────────────────────────────────────────────────────
@@ -386,11 +385,28 @@ export default function CompareScreen({
               flexWrap: "wrap",
             }}
           >
-            <TrendPill
-              value={Math.round(sonuc.yuzdeDegisim)}
-              direction={sonuc.yuzdeDegisim >= 0 ? "up" : "down"}
-              size="sm"
-            />
+            {(() => {
+              // Satın alma gücü: artış = olumlu (teal/fall), düşüş = olumsuz (coral/rise)
+              const artis = sonuc.yuzdeDegisim >= 0;
+              return (
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "4px 10px",
+                    borderRadius: "var(--radius-pill)",
+                    background: artis ? "var(--fall-tint)" : "var(--rise-tint)",
+                    color: artis ? "var(--fall)" : "var(--rise)",
+                    fontSize: 13,
+                    fontWeight: 600,
+                    fontFamily: "var(--font-data)",
+                  }}
+                >
+                  {artis ? "+" : "−"}%{Math.abs(Math.round(sonuc.yuzdeDegisim))}{" "}
+                  {artis ? "daha fazla" : "daha az"}
+                </span>
+              );
+            })()}
             {anchorKaynak && (
               <SourceBadge
                 source={anchorKaynak.kaynakAdi}

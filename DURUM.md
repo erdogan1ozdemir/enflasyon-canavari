@@ -24,7 +24,7 @@ Sıra (onaylı):
 3. ✅ Hesapla çift yön ("o gün→bugün" + "bugün→o gün")
 4. ✅ Kaynaklar → Profil (`/profil`, nav "Profil"; Hakkında + Tema + Cüzdan "yakında" + Kaynaklar bölümü; eski `/kaynaklar` → `/profil` yönlendirme)
 5. ✅ Eksik veri — **7 ürün eklendi** (TÜİK, verikaynagi'den Playwright/XHR): ekmek, tavuk, yumurta, patates, soğan, pirinç (gıda); sinema bileti (yeni **hizmet** kategorisi, 2005-2024). **12 kalem, 208 nokta.** Karşılaştır birim etiketi düzeltildi. Sigara deep research'le incelendi → marka geçmişi doğrulanamadı, atlandı. Pending (kaynak yok): döner/çay, gıda ürünlerinin 2022-26'sı, benzin 2005-20.
-6. ⏳ Tasarım cila (yeni design skill'leriyle)
+6. ✅ Tasarım cila — Karşılaştır satın alma gücü renk semantiği düzeltildi (artış=teal/olumlu, düşüş=coral). Geri kalan tasarım zaten sadık Claude Design uygulaması; keyfi restyle yapılmadı (karpathy). Daha geniş redesign = yeni Claude Design export gerektirir.
 
 ## Bilinen sorunlar / TODO
 - (Karşılaştır) satın alma gücü artışı coral-yukarı gösteriyor; renk semantiği cilada gözden geçirilecek. → Adım 6
