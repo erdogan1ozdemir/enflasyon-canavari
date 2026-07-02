@@ -2,13 +2,15 @@
 
 > `@ec/web` — Next.js 16 App Router frontend. Yaşayan durum/TODO. Ana izleyici: [../DURUM.md](../DURUM.md).
 
-**Son güncelleme:** 2026-06-19
+**Son güncelleme:** 2026-07-03 (Faz 4)
 
 ## Yapı
-- `app/` — rotalar: `/` (Home), `/kalem/[id]` (detay, SSG), `/karsilastir`, `/hesapla`, `/profil` (eski `/kaynaklar` → /profil yönlendirir), `app/icon.svg` (favicon).
-- `components/` — `ui/` (Button, Card, Badge, Input, SegmentedControl), `data/` (SourceBadge, BigStat, TrendPill, ItemRow, LineChart), `screens/` (Home/ItemDetail/Compare/Calc/Sources), `share/` (ShareCard, ShareSheet), `Icon`, `AppShell`, `BottomNav`, `ThemeProvider`, `ThemeToggle`, `AdSlot`.
-- `lib/` — `viewmodel.ts` (seriBul/itemViewModel/listViewModel + CompareItemVM), `icon-map.ts`, `labels.ts` (KATEGORI_LABELS).
+- `app/` — rotalar: `/` (Home), `/kalem/[id]` (detay, SSG), `/karsilastir`, `/hesapla`, `/profil` hub + `/profil/{tema,hakkinda,kaynaklar,ayarlar,bilgilerim}` (eski `/kaynaklar` → `/profil/kaynaklar` yönlendirir), `app/icon.svg` (favicon).
+- `components/` — `ui/` (Button, Card, Badge, Input, SegmentedControl), `data/` (SourceBadge, BigStat, TrendPill, ItemRow, LineChart), `screens/` (Home/ItemDetail/Compare/Calc/Sources/Profile hub/Settings/Bilgilerim), `share/` (ShareCard, ShareSheet — Karşılaştır'a bağlı), `Icon`, `AppShell`, `BottomNav`, `SubPageShell` (← geri; swipe-back history ile), `ThemeProvider`, `ThemeToggle`, `ThemeSetting`, `AdSlot`.
+- `lib/` — `viewmodel.ts` (seriBul/itemViewModel/listViewModel/CompareItemVM + **paraToUrun/urunToPara**), `profile.ts` (`ec_profil` localStorage: adSoyad/maas), `platform.ts` (`isApp()` Capacitor tespiti), `icon-map.ts`, `labels.ts`.
 - `config/flags.ts` — ads/premium/crowdsource (hepsi kapalı).
+- **Karşılaştır v2:** mod toggle ("Param ne alır?" / "Ürün kaç para?"), serbest tutar + TL/Dolar/Gram altın, "O yılın asgari ücreti" ve "Maaşım" çipleri, ürün→para TL+≈USD, Paylaş → ShareSheet.
+- **Platform ayrımı:** web düz site/login'siz; app-only öğeler (`Bilgilerim`, Bildirimler) `isApp()` ile gizli; kişisel veri yalnız cihazda.
 - Stil: tasarım tokenları (inline-style + `var(--token)`), Tailwind layout için. Tema `next-themes` (`data-theme`).
 
 ## Çalışıyor
