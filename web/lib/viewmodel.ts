@@ -1,5 +1,5 @@
 import type { Item, PricePoint, FiyatOpts, Degisim } from "@ec/data";
-import { degisim as calcDegisim } from "@ec/data";
+import { degisim as calcDegisim, fiyatBul, kacXEder } from "@ec/data";
 import { iconForItem } from "./icon-map";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -123,6 +123,43 @@ export function itemViewModel(
 /**
  * Summary row view-models for the Home list.
  */
+// ─── Karşılaştır v2 yardımcıları ───────────────────────────────────────────
+
+export type ParaBirimi = "TL" | "usd" | "gram-altin";
+
+/** Verilen tutar (TL/USD/gram altın) o yıl kaç birim ürün alır; veri yoksa null. */
+export function paraToUrun(
+  prices: PricePoint[],
+  tutar: number,
+  birim: ParaBirimi,
+  urunId: string,
+  yil: number,
+): number | null {
+  if (tutar < 0) return null;
+  let tutarTL = tutar;
+  if (birim !== "TL") {
+    const kur = fiyatBul(prices, birim, yil);
+    if (kur === null) return null;
+    tutarTL = tutar * kur;
+  }
+  return kacXEder(prices, tutarTL, urunId, yil);
+}
+
+/** Verilen miktar ürünün o yılki TL ve (varsa) USD karşılığı; veri yoksa null. */
+export function urunToPara(
+  prices: PricePoint[],
+  miktar: number,
+  urunId: string,
+  yil: number,
+): { tl: number; usd: number | null } | null {
+  if (miktar < 0) return null;
+  const f = fiyatBul(prices, urunId, yil);
+  if (f === null) return null;
+  const tl = miktar * f;
+  const kur = fiyatBul(prices, "usd", yil);
+  return { tl, usd: kur !== null && kur !== 0 ? tl / kur : null };
+}
+
 export function listViewModel(
   items: Item[],
   prices: PricePoint[],
