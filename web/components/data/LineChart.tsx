@@ -30,8 +30,8 @@ export default function LineChart({
   const xs = all.map((p) => p[0]), ys = all.map((p) => p[1]);
   const xMin = Math.min(...xs), xMax = Math.max(...xs);
   const yMax = Math.max(...ys) * 1.08, yMin = 0;
-  const px = (x: number) => pad.l + ((x - xMin) / (xMax - xMin)) * (W - pad.l - pad.r);
-  const py = (y: number) => H - pad.b - ((y - yMin) / (yMax - yMin)) * (H - pad.t - pad.b);
+  const px = (x: number) => pad.l + ((x - xMin) / ((xMax - xMin) || 1)) * (W - pad.l - pad.r);
+  const py = (y: number) => H - pad.b - ((y - yMin) / ((yMax - yMin) || 1)) * (H - pad.t - pad.b);
 
   const years = [xMin, Math.round((xMin + xMax) / 2), xMax];
   const gridYs = [0.25, 0.5, 0.75, 1].map((f) => yMin + f * (yMax - yMin));

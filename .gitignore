@@ -27,3 +27,6 @@ yarn-error.log*
 
 # Brainstorming görsel companion (geçici)
 .superpowers/
+
+# Playwright MCP snapshot artıkları
+.playwright-mcp/

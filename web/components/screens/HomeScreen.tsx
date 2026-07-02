@@ -190,7 +190,6 @@ export default function HomeScreen({ rows, featured }: HomeScreenProps) {
             row.degisim ? (
               <TrendPill
                 value={Math.round(row.degisim.yuzde)}
-                direction="up"
                 size="sm"
               />
             ) : null;

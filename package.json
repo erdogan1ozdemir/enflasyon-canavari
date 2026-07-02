@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "workspaces": ["data", "web"],
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest run && npm run test -w web",
     "validate:data": "tsx scripts/validate-data.ts",
     "dev": "npm run dev -w web"
   },
