@@ -26,6 +26,8 @@ import {
   User,
   Wallet,
   Ticket,
+  Settings,
+  Bell,
   type LucideIcon,
 } from "lucide-react";
 import type React from "react";
@@ -58,6 +60,8 @@ const MAP: Record<string, LucideIcon> = {
   user: User,
   wallet: Wallet,
   ticket: Ticket,
+  settings: Settings,
+  bell: Bell,
 };
 
 export type IconName = keyof typeof MAP;
