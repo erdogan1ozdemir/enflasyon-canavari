@@ -138,11 +138,14 @@ export default function CompareScreen({
       !PARA_KAYNAK_IDS.includes(i.id as (typeof PARA_KAYNAK_IDS)[number]),
   );
 
-  const defaultTargetId = targets.find((t) => t.yillar.length > 0)?.id ?? targets[0]?.id ?? "ekmek";
+  const defaultTarget = targets.find((t) => t.yillar.length > 0) ?? targets[0];
+  const defaultTargetId = defaultTarget?.id ?? "ekmek";
   const [targetId, setTargetId] = useState(defaultTargetId);
 
-  const [yilA, setYilA] = useState(minYil);
-  const [yilB, setYilB] = useState(maxYil);
+  // Varsayılan yıllar: hedefin verili aralığı (açılışta boş durum görünmesin)
+  const defYillar = defaultTarget?.yillar ?? [];
+  const [yilA, setYilA] = useState(defYillar.length > 0 ? Math.min(...defYillar) : minYil);
+  const [yilB, setYilB] = useState(defYillar.length > 0 ? Math.max(...defYillar) : maxYil);
 
   const allYears = useMemo(() => buildYears(minYil, maxYil), [minYil, maxYil]);
 
